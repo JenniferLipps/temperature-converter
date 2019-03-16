@@ -6,6 +6,20 @@
     </head>
     <body>
         <h2>Temperature Converter</h2>
+        
+            <input id="tempInput"></input>
+            <div id="radio">
+                <input type="radio" name="degreeType" id="fDegrees" value="fahrenheit">
+                <label for="fDegrees">Fahrenheit</label>
+
+                <input type="radio" name="degreeType" id="cDegrees" value="celsius">
+                <label for="cDegrees">Celsius</label>
+            </div>
+
+        <!-- <button>Clear</button> -->
+        <button id="convertBtn">Convert</button>
+        <div id="tempOutput"></div>
+       
         <script src="./main.js"></script>
     </body>
 </html>
