@@ -45,6 +45,13 @@ const button = document.getElementById("convertBtn");
 
 button.addEventListener("click", determineConverter);
 
+document.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    determineConverter();
+  }
+});
+
 const clearButton = document.getElementById("clearBtn");
 
 const clear = () => {
