@@ -5,21 +5,29 @@ const printToDom = (divId, textToPrint) => {
 
 const toCelsius = () => {
   let temp = document.getElementById("tempInput").value;
-  const finalTemp = ((temp - 32) * (5/9));
-  domStringBuilder(finalTemp, " C");
+  const finalTemp = Math.round(((temp - 32) * (5/9)));
+  domStringBuilder(finalTemp, "C");
 };
 
 const toFahrenheit = () => {
   let temp = document.getElementById("tempInput").value;
-  const finalTemp = ((temp * (9/5)) + 32);
-  domStringBuilder(finalTemp, " F");
+  const finalTemp = Math.round(((temp * (9/5)) + 32));
+  domStringBuilder(finalTemp, "F");
 };
 
 const domStringBuilder = (finalTemp, unit) => {
   let domString = '';
-    domString += '<h2>'
-      domString += finalTemp
-      domString += unit
+      
+  if ((finalTemp > 90 && unit === "F") || (finalTemp > 32 && unit === "C")) {
+    domString += '<h2 id="hot">';
+  } else if ((finalTemp < 32 && unit === "F") || (finalTemp < 0 && unit === "C")) {
+    domString += '<h2 id="cold">';
+  } else {
+    domString += '<h2 id="neutral">';
+  };
+
+    domString += finalTemp
+    domString += unit
     domString += '</h2>'
   printToDom('tempOutput', domString); 
 };
@@ -40,7 +48,7 @@ button.addEventListener("click", determineConverter);
 const clearButton = document.getElementById("clearBtn");
 
 const clear = () => {
-  document.getElementById("tempInput").innerHTML = '';
+  document.getElementById("tempInput").value = '';
   document.getElementById("tempOutput").innerHTML = '';
 };
 
