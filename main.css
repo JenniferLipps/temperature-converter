@@ -17,3 +17,15 @@ body {
     height: 50px;
     width: 100px;
 }
+
+#hot {
+    color: red;
+}
+
+#cold {
+    color: blue;
+}
+
+#neutral {
+    color: green;
+}
