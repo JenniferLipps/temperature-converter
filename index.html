@@ -7,18 +7,20 @@
     <body>
         <h2>Temperature Converter</h2>
         
-            <input id="tempInput"></input>
-            <h3>Convert temperature to:</h3>
+            
+            <h3>Convert temperature:</h3>
             <div id="radio">
                 <input type="radio" name="degreeType" id="fDegrees" value="fahrenheit">
-                <label for="fDegrees">Fahrenheit</label>
+                <label for="fDegrees">Fahrenheit to Celsius</label>
 
                 <input type="radio" name="degreeType" id="cDegrees" value="celsius">
-                <label for="cDegrees">Celsius</label>
+                <label for="cDegrees">Celsius to Fahrenheit</label>
             </div>
+            <input id="tempInput"></input>
 
         <!-- <button>Clear</button> -->
         <button id="convertBtn">Convert</button>
+        <button id="clearBtn">Clear</button>
         <div id="tempOutput"></div>
        
         <script src="./main.js"></script>
