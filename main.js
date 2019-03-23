@@ -5,11 +5,35 @@ const printToDom = (divId, textToPrint) => {
 
 const button = document.getElementById("convertBtn");
 
+const toCelsius = () => {
+  let temp = document.getElementById("tempInput").value;
+  const finalTemp = ((temp - 32) * (5/9));
+  domStringBuilder(finalTemp, "C");
+};
+
+const toFahrenheit = () => {
+  let temp = document.getElementById("tempInput").value;
+  const finalTemp = ((temp * (9/5)) + 32);
+  domStringBuilder(finalTemp, "F");
+};
+
+const domStringBuilder = (finalTemp, unit) => {
+  let domString = '';
+    domString += '<h2>'
+      domString += finalTemp
+      domString += unit
+    domString += '</h2>'
+  printToDom('tempOutput', domString); 
+};
+
 const determineConverter = (e) => {
-  let inputValue = document.getElementById("tempInput").value;
   let degreeValue = document.querySelector('input[name="degreeType"]:checked').value;
-  console.log(degreeValue, inputValue);
-  printToDom('tempOutput', inputValue);
+  if (degreeValue === "fahrenheit") {
+    toCelsius();
+  } else {
+    toFahrenheit();
+  };
 }
 
 button.addEventListener("click", determineConverter);
+
