@@ -3,18 +3,16 @@ const printToDom = (divId, textToPrint) => {
   selectedDiv.innerHTML = textToPrint;
 };
 
-const button = document.getElementById("convertBtn");
-
 const toCelsius = () => {
   let temp = document.getElementById("tempInput").value;
   const finalTemp = ((temp - 32) * (5/9));
-  domStringBuilder(finalTemp, "C");
+  domStringBuilder(finalTemp, " C");
 };
 
 const toFahrenheit = () => {
   let temp = document.getElementById("tempInput").value;
   const finalTemp = ((temp * (9/5)) + 32);
-  domStringBuilder(finalTemp, "F");
+  domStringBuilder(finalTemp, " F");
 };
 
 const domStringBuilder = (finalTemp, unit) => {
@@ -35,5 +33,15 @@ const determineConverter = (e) => {
   };
 }
 
+const button = document.getElementById("convertBtn");
+
 button.addEventListener("click", determineConverter);
 
+const clearButton = document.getElementById("clearBtn");
+
+const clear = () => {
+  document.getElementById("tempInput").innerHTML = '';
+  document.getElementById("tempOutput").innerHTML = '';
+};
+
+clearBtn.addEventListener("click", clear);
